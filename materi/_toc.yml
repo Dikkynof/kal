@@ -1,0 +1,8 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+  - file: Sistem_Persamaan_Linier
+  - file: Tugas2_persamaan_linier
