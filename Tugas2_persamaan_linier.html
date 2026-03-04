@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Penyelesaian sistem persamaan linier tiga variabel dan empat variabel dengan menggunakan eliminasi gaussian &#8212; Selamat Datang</title>
+    <title>Penyelesaian sistem persamaan linier 3 variabel dan 4 variabel &#8212; Selamat Datang</title>
   
   
   
@@ -176,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Sistem_Persamaan_Linier.html">Sistem Persamaan Linier</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Penyelesaian sistem persamaan linier tiga variabel dan empat variabel dengan menggunakan eliminasi gaussian</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Penyelesaian sistem persamaan linier 3 variabel dan 4 variabel</a></li>
 </ul>
 
     </div>
@@ -362,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Penyelesaian sistem persamaan linier tiga variabel dan empat variabel dengan menggunakan eliminasi gaussian</h1>
+    <h1>Penyelesaian sistem persamaan linier 3 variabel dan 4 variabel</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -372,7 +372,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer">Operasi Baris Elementer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris">Bentuk Eselon Baris</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-tiga-variabel-3-variabel">Sistem Persamaan Linear Tiga Variabel (3 Variabel)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-augmentasi">Matriks Augmentasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-eliminasi-gaussian">Proses Eliminasi Gaussian</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nolkan-kolom-1-di-bawah-pivot-baris-1">1. Nolkan kolom 1 di bawah pivot (baris 1)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nolkan-kolom-2-di-bawah-pivot-baris-2">2. Nolkan kolom 2 di bawah pivot (baris 2)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#substitusi-balik">Substitusi Balik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir">Hasil Akhir</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-empat-variabel-4-variabel">Sistem Persamaan Linear Empat Variabel (4 Variabel)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Matriks Augmentasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Proses Eliminasi Gaussian</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-1-pivot-di-r-1">Kolom 1 (Pivot di <span class="math notranslate nohighlight">\(R_1\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-2-pivot-di-r-2">Kolom 2 (Pivot di <span class="math notranslate nohighlight">\(R_2\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-3-pivot-di-r-3">Kolom 3 (Pivot di <span class="math notranslate nohighlight">\(R_3\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Substitusi Balik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Hasil Akhir</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -384,74 +409,373 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="penyelesaian-sistem-persamaan-linier-tiga-variabel-dan-empat-variabel-dengan-menggunakan-eliminasi-gaussian">
-<h1>Penyelesaian sistem persamaan linier tiga variabel dan empat variabel dengan menggunakan eliminasi gaussian<a class="headerlink" href="#penyelesaian-sistem-persamaan-linier-tiga-variabel-dan-empat-variabel-dengan-menggunakan-eliminasi-gaussian" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="penyelesaian-sistem-persamaan-linier-3-variabel-dan-4-variabel">
+<h1>Penyelesaian sistem persamaan linier 3 variabel dan 4 variabel<a class="headerlink" href="#penyelesaian-sistem-persamaan-linier-3-variabel-dan-4-variabel" title="Permalink to this heading">#</a></h1>
+<section id="operasi-baris-elementer">
+<h2>Operasi Baris Elementer<a class="headerlink" href="#operasi-baris-elementer" title="Permalink to this heading">#</a></h2>
+<p>Operasi Baris Elementer adalah operasi yang dilakukan pada baris-baris suatu matriks untuk mempermudah proses penyelesaian system persamaan linier atau manipulasi matriks. Operasi ini digunakan dalam metode eliminasi Gauss dan Gauss-Jordan untuk mengubah matriks menjadi bentuk yang lebih sederhana, seperti matriks eselon baris atau matriks identifikasi. Tujuan utama dari OBE adalah untuk menyederhanakan matriks, terutama dalam menyelesaikan sistem persamaan linier, mencari invers matriks, atau menentukan rank matriks. OBE tidak mengubah solusi dari sistem persamaan linier yang direpresentasikan oleh matriks tersebut.</p>
+<p>Jenis-Jenis Operasi Baris Elementer (OBE)</p>
+<ol class="arabic simple">
+<li><p>Pertukaran baris
+Operasi ini menukarkan posisi dua baris dalam matriks.</p></li>
+<li><p>Perkalian baris dnegan konstanta bukan Nol
+Operasi ini mengalikan semua elemen dalam suatu baris dengan konstanta bukan nol</p></li>
+</ol>
+<p>Ciri-Ciri Baris Elementer</p>
+<ol class="arabic simple">
+<li><p>Tidak mengubah solusi sistem persamaan linier
+Operasi ini hanya mengubah bentuk sistem tanpa mengubah solusi dari sistem tersebut.</p></li>
+<li><p>Dapat digunakan untuk menyederhanakan matriks
+Berguna dalam mencari invers matriks, menyelesaikan sistem persamaan linier, dan menentukan determinan.</p></li>
+<li><p>Operasi bersifat reversibel (dapat dibalik)
+a. Pertukaran daua baris dapat dikembalikan dengan pertukaran yang sama.
+b. Penjumlahan dengan kelipatan baris lain dapat dikembalikan dengan operasi sebaliknya.</p></li>
+</ol>
+<p>Contoh Penggunaan Operasi Baris Elementer</p>
+<ol class="arabic simple">
+<li><p>Contoh Penggunaan dalam Eliminasi Gauss
+a. Digunakan untuk mencari elemen utama (pivot) di setiap kolom.
+b. Menggunakan OBE untuk membuat semua elemen di bawah pivot menjadi nol.
+c. Melanjutkan proses ini untuk kolom-kolom berikutnya.</p></li>
+<li><p>Contoh penggunaan dalam eliminasi Gauss Jordan
+Eliminasi Gauss Jordan adalah variasi dari eliminasi Gauss yang lebih lanjut mengubah matriks menjadi bentuk eleson baris tereduksi. Dalam bentuk ini, semua elemen di aats dan di bawah pivot adalh nol, dan smeu pivot adalah 1.</p></li>
+</ol>
 <section id="eliminasi-gauss">
-<h2>Eliminasi Gauss<a class="headerlink" href="#eliminasi-gauss" title="Permalink to this heading">#</a></h2>
+<h3>Eliminasi Gauss<a class="headerlink" href="#eliminasi-gauss" title="Permalink to this heading">#</a></h3>
 <p>Eliminasi Gauss adalah metode untuk menyelesaikan sistem linear dengan mereduksi matriks augmented ke bentuk trapesium (upper triangular / row echelon) menggunakan operasi baris elementer, lalu melakukan back-substitution untuk mendapatkan nilai variabelnya.</p>
-<p>Selesaikan dengan menggunakan eleminasi gauss</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
-
-<span class="c1"># Menampilkan sistem persamaan dalam format LaTeX</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">\begin</span><span class="si">{cases}</span>
-<span class="s1">2x + y - z = 8 \\</span>
-<span class="s1">-3x - y + 2z = -11 \\</span>
-<span class="s1">-2x + y + 2z = -3 \\</span>
-<span class="s1">\end</span><span class="si">{cases}</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle 
+<section id="bentuk-eselon-baris">
+<h4>Bentuk Eselon Baris<a class="headerlink" href="#bentuk-eselon-baris" title="Permalink to this heading">#</a></h4>
+<p>Suatu matriks memiliki eselon baris jika memenuhi 3 kriteria berikut :</p>
+<ol class="arabic simple">
+<li><p>Jika didalam baris terdapat elemen-elemen yang tidak semuanya 0, maka bilangan tak nol pertama di dalam baris tersebut adalah 1.</p></li>
+<li><p>Kalau terdapat baris-baris yang semua elemennya bernilai 0 semua, maka baris-baris tersebut harus dikelompokkan dan diletakkan dibagian bawah matriks.</p></li>
+<li><p>Jika terdapat dua barais berurutan yang memenuhi kriteria pertama, maka angka 1 dari baris yang lebih rendah ke kanan dari angka 1 baris yang diatasnya.</p></li>
+</ol>
+<p>Terdapat 3 operasi yang dapat dilakukan</p>
+<ol class="arabic simple">
+<li><p>Tukarkan posisi kedua persamaan.</p></li>
+<li><p>Kalikan persamaan dengan bilangan apa pun yang bukan nol.</p></li>
+<li><p>Gantikan suatu persamaan dengan jumlah persamaan itu sendiri dan kelipatan persamaan lainnya.</p></li>
+</ol>
+<p>Langkah - Langkah Eliminasi Gauss</p>
+<ol class="arabic simple">
+<li><p>Representasi Matriks : Ubah sistem persamaan linier menjadi bentuk matriks augmented. Matriks augmented terdiri dari matrik koefisien dari variabel dan matriks kolom konstanta.</p></li>
+<li><p>Operasi Baris Elementer : Lakukan operasi baris elementer untuk mengubah matriks menjadi eselon baris.</p></li>
+<li><p>Membuat Nol dibawah dialog utama : Gunakan operasi baris elementer untuk membuat semua elemen di bawah dialog utama matriks menjadi nol. Ini akan menghasilkan matriks eselon baris.</p></li>
+<li><p>Back Subtitution (Subtitusi Balik) : Setelah mendapatkan matriks eselon baris, gunakan substitusi balik untuk menemukan nilai variabel.</p></li>
+</ol>
+</section>
+</section>
+<section id="sistem-persamaan-linear-tiga-variabel-3-variabel">
+<h3>Sistem Persamaan Linear Tiga Variabel (3 Variabel)<a class="headerlink" href="#sistem-persamaan-linear-tiga-variabel-3-variabel" title="Permalink to this heading">#</a></h3>
+<p>Diketahui sistem persamaan:</p>
+<div class="math notranslate nohighlight">
+\[
+2x + y - z = 8
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-3x - y + 2z = -11
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-2x + y + 2z = -3
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="matriks-augmentasi">
+<h3>Matriks Augmentasi<a class="headerlink" href="#matriks-augmentasi" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 1 &amp; -1 &amp; | &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; | &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; | &amp; -3
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="proses-eliminasi-gaussian">
+<h3>Proses Eliminasi Gaussian<a class="headerlink" href="#proses-eliminasi-gaussian" title="Permalink to this heading">#</a></h3>
+<section id="nolkan-kolom-1-di-bawah-pivot-baris-1">
+<h4>1. Nolkan kolom 1 di bawah pivot (baris 1)<a class="headerlink" href="#nolkan-kolom-1-di-bawah-pivot-baris-1" title="Permalink to this heading">#</a></h4>
+<p>Operasi baris:
+$<span class="math notranslate nohighlight">\(
+R_2 = R_2 + \frac{3}{2}R_1
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+R_3 = R_3 + R_1
+\)</span>$</p>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 1 &amp; -1 &amp; | &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; | &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; | &amp; 5
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="nolkan-kolom-2-di-bawah-pivot-baris-2">
+<h4>2. Nolkan kolom 2 di bawah pivot (baris 2)<a class="headerlink" href="#nolkan-kolom-2-di-bawah-pivot-baris-2" title="Permalink to this heading">#</a></h4>
+<p>Operasi baris:
+$<span class="math notranslate nohighlight">\(
+R_3 = R_3 - 4R_2
+\)</span>$</p>
+<p>Hasil (Bentuk Eselon Baris):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 1 &amp; -1 &amp; | &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; | &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; | &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="substitusi-balik">
+<h3>Substitusi Balik<a class="headerlink" href="#substitusi-balik" title="Permalink to this heading">#</a></h3>
+<p>Dari baris ke-3:
+$$</p>
+<ul class="simple">
+<li><p>z = 1
+$<span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\mathbf{z = -1}
+\)</span>$</p></li>
+</ul>
+<p>Dari baris ke-2:
+$<span class="math notranslate nohighlight">\(
+\frac{1}{2}y + \frac{1}{2}(-1) = 1
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\frac{1}{2}y - \frac{1}{2} = 1
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\frac{1}{2}y = \frac{3}{2}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\mathbf{y = 3}
+\)</span>$</p>
+<p>Dari baris ke-1:
+$<span class="math notranslate nohighlight">\(
+2x + 3 - (-1) = 8
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+2x + 4 = 8
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+2x = 4
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\mathbf{x = 2}
+\)</span>$</p>
+</section>
+<hr class="docutils" />
+<section id="hasil-akhir">
+<h3>Hasil Akhir<a class="headerlink" href="#hasil-akhir" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\boxed{x = 2,\quad y = 3,\quad z = -1}
+\]</div>
+</section>
+<section id="sistem-persamaan-linear-empat-variabel-4-variabel">
+<h3>Sistem Persamaan Linear Empat Variabel (4 Variabel)<a class="headerlink" href="#sistem-persamaan-linear-empat-variabel-4-variabel" title="Permalink to this heading">#</a></h3>
+<p>Diketahui sistem persamaan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{cases}
-2x + y - z = 8 \\
--3x - y + 2z = -11 \\
--2x + y + 2z = -3 \\
+w + x + y + z = 10 \\
+2w - x + y - z = 2 \\
+w + 2x - y + z = 8 \\
+3w - x + 2y - z = 4
 \end{cases}
 \end{split}\]</div>
-</div>
-</div>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>Matriks Augmentasi<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; | &amp; 10 \\
+2 &amp; -1 &amp; 1 &amp; -1 &amp; | &amp; 2 \\
+1 &amp; 2 &amp; -1 &amp; 1 &amp; | &amp; 8 \\
+3 &amp; -1 &amp; 2 &amp; -1 &amp; | &amp; 4
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h3>Proses Eliminasi Gaussian<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="kolom-1-pivot-di-r-1">
+<h4>Kolom 1 (Pivot di <span class="math notranslate nohighlight">\(R_1\)</span>)<a class="headerlink" href="#kolom-1-pivot-di-r-1" title="Permalink to this heading">#</a></h4>
+<p>Operasi baris:</p>
+<div class="math notranslate nohighlight">
+\[
+R_2 = R_2 - 2R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_3 = R_3 - R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_4 = R_4 - 3R_1
+\]</div>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; | &amp; 10 \\
+0 &amp; -3 &amp; -1 &amp; -3 &amp; | &amp; -18 \\
+0 &amp; 1 &amp; -2 &amp; 0 &amp; | &amp; -2 \\
+0 &amp; -4 &amp; -1 &amp; -4 &amp; | &amp; -26
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="kolom-2-pivot-di-r-2">
+<h4>Kolom 2 (Pivot di <span class="math notranslate nohighlight">\(R_2\)</span>)<a class="headerlink" href="#kolom-2-pivot-di-r-2" title="Permalink to this heading">#</a></h4>
+<p>Operasi baris:</p>
+<div class="math notranslate nohighlight">
+\[
+R_3 = R_3 + \frac{1}{3}R_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_4 = R_4 - \frac{4}{3}R_2
+\]</div>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; | &amp; 10 \\
+0 &amp; -3 &amp; -1 &amp; -3 &amp; | &amp; -18 \\
+0 &amp; 0 &amp; -\frac{7}{3} &amp; -1 &amp; | &amp; -8 \\
+0 &amp; 0 &amp; \frac{1}{3} &amp; 0 &amp; | &amp; -2
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="kolom-3-pivot-di-r-3">
+<h4>Kolom 3 (Pivot di <span class="math notranslate nohighlight">\(R_3\)</span>)<a class="headerlink" href="#kolom-3-pivot-di-r-3" title="Permalink to this heading">#</a></h4>
+<p>Operasi baris:</p>
+<div class="math notranslate nohighlight">
+\[
+R_4 = R_4 + \frac{1}{7}R_3
+\]</div>
+<p>Hasil (Bentuk Eselon Baris):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; | &amp; 10 \\
+0 &amp; -3 &amp; -1 &amp; -3 &amp; | &amp; -18 \\
+0 &amp; 0 &amp; -\frac{7}{3} &amp; -1 &amp; | &amp; -8 \\
+0 &amp; 0 &amp; 0 &amp; -\frac{1}{7} &amp; | &amp; -\frac{22}{7}
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h3>Substitusi Balik<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Dari baris ke-4:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{7}z = -\frac{22}{7}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{z = 22}
+\]</div>
+<p>Dari baris ke-3:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{7}{3}y - 22 = -8
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-\frac{7}{3}y = 14
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{y = -6}
+\]</div>
+<p>Dari baris ke-2:</p>
+<div class="math notranslate nohighlight">
+\[
+-3x - (-6) - 3(22) = -18
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-3x + 6 - 66 = -18
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-3x = 42
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x = -14}
+\]</div>
+<p>Dari baris ke-1:</p>
+<div class="math notranslate nohighlight">
+\[
+w + (-14) + (-6) + 22 = 10
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+w + 2 = 10
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{w = 8}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3>Hasil Akhir<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+w = 8,\quad
+x = -14,\quad
+y = -6,\quad
+z = 22
+}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
 
-<span class="c1"># Matriks koefisien</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-    <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="c1"># Matriks konstanta</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="c1"># Menyelesaikan sistem persamaan</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan hasil</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nilai x =&quot;</span><span class="p">,</span> <span class="n">solution</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nilai y =&quot;</span><span class="p">,</span> <span class="n">solution</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nilai z =&quot;</span><span class="p">,</span> <span class="n">solution</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">IFrame</span><span class="p">(</span>
+    <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://www.geogebra.org/3d?command=</span><span class="se">\</span>
+<span class="s2">f:2x%2By-z=8&amp;</span><span class="se">\</span>
+<span class="s2">g:-3x-y%2B2z=-11&amp;</span><span class="se">\</span>
+<span class="s2">h:-2x%2By%2B2z=-3&amp;</span><span class="se">\</span>
+<span class="s2">A=(2,3,-1)&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">600</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  1 -1]
- [-3 -1  2]
- [-2  1  2]]
-Nilai x = 2.0000000000000004
-Nilai y = 2.9999999999999996
-Nilai z = -0.9999999999999994
-</pre></div>
+<div class="output text_html">
+        <iframe
+            width="100%"
+            height="600"
+            src="https://www.geogebra.org/3d?command=f:2x%2By-z=8&g:-3x-y%2B2z=-11&h:-2x%2By%2B2z=-3&A=(2,3,-1)"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
-</div>
-</div>
+</section>
 </section>
 </section>
 
@@ -510,7 +834,32 @@ Nilai z = -0.9999999999999994
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer">Operasi Baris Elementer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris">Bentuk Eselon Baris</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-tiga-variabel-3-variabel">Sistem Persamaan Linear Tiga Variabel (3 Variabel)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-augmentasi">Matriks Augmentasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-eliminasi-gaussian">Proses Eliminasi Gaussian</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nolkan-kolom-1-di-bawah-pivot-baris-1">1. Nolkan kolom 1 di bawah pivot (baris 1)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nolkan-kolom-2-di-bawah-pivot-baris-2">2. Nolkan kolom 2 di bawah pivot (baris 2)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#substitusi-balik">Substitusi Balik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir">Hasil Akhir</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-empat-variabel-4-variabel">Sistem Persamaan Linear Empat Variabel (4 Variabel)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Matriks Augmentasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Proses Eliminasi Gaussian</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-1-pivot-di-r-1">Kolom 1 (Pivot di <span class="math notranslate nohighlight">\(R_1\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-2-pivot-di-r-2">Kolom 2 (Pivot di <span class="math notranslate nohighlight">\(R_2\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-3-pivot-di-r-3">Kolom 3 (Pivot di <span class="math notranslate nohighlight">\(R_3\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Substitusi Balik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Hasil Akhir</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
